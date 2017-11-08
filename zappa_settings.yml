@@ -1,0 +1,66 @@
+common:
+  app_function: app.api.app
+  aws_region: eu-west-1
+  cloudwatch_log_level: 'ERROR'
+  cloudwatch_data_trace: true
+  cloudwatch_metrics_enabled: true
+  cors: true
+  exclude:
+  - '*.collection'
+  - '*.egg-info'
+  - '*.eggs'
+  - '*.zip'
+  - .cache
+  - .editorconfig
+  - .env
+  - .gitignore
+  - .idea
+  - .pre-commit-config.yaml
+  - .tox
+  - benchmark_tests.py
+  - boto3
+  - botocore
+  - build*
+  - codeship.yml
+  - concurrent
+  - dateutil
+  - dist
+  - jmespath
+  - local.env
+  - node_modules
+  - README.md
+  - run.py
+  - s3transfer
+  - scripts
+  - tests
+  - tox.ini
+  keep_warm: true
+  manage_roles: false
+#  method_header_types:
+#  - Content-Type
+#  - Location
+#  - Status
+#  - X-Frame-Options
+#  - Set-Cookie
+#  - Access-Control-Allow-Origin
+#  - Access-Control-Allow-Headers
+#  - Access-Control-Allow-Methods
+  project_name: brush
+  runtime: python3.6
+prod:
+#  authorizer:
+#    arn: arn:aws:lambda:eu-west-1:181537326646:function:prod-s-authorizer-r-AuthoriserAuthoriser-KB00V3II2OFY:current
+#    result_ttl: 300
+#  domain: api.boughtbymany.com
+#  environment_variables:
+#    AWS_EVENTS_API_URL: https://api.boughtbymany.com/events/event
+#    DEBUG: 'FALSE'
+#    ENV: PROD
+#    GOCARDLESS_ENVIRONMENT: live
+#    NO_API_AUTHORISATION: 'False'
+#    PUBLIC_API_URL: https://api.boughtbymany.com/payments
+#    SENTRY_DSN: https://2af36eb6ebe94208b30aa896edaee07f:36abf3056c5946a6bac831a8c156daa2@sentry.io/144165
+#    SERVICE_USER_SWAGGER_URL: https://api.boughtbymany.com/users/swagger.json
+  extends: common
+  role_name: zappa-execution-role-prod
+  s3_bucket: zappa-uploads-prod
